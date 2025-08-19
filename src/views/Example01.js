@@ -1,30 +1,16 @@
 import React from 'react';
+import { Child01 } from './ChildComponents/Child01';
 
 class Example01 extends React.Component{
 
-    onChangeName = (e)=>{
-        this.setState({
-            name: e.target.value,
-        });
-    }
-
-    state = {
-        name: 'Nguyễn Văn A',
-        age: '18',
-    }
-
     render(){
+
+        const first = "Nguyen";
+        const last ="A";
+
         return(
             <>
-            Test Example 01
-            <br></br>
-            <label>Tên:</label><input type='text' value={this.state.name} onChange={this.onChangeName}/>
-            <label>Tuổi:</label><input type='text' value={this.state.age}/>
-            Object Human
-            <span>
-                <p>Name: {this.state.name}</p>
-                <p>Tuổi: {this.state.age}</p>
-            </span>
+                <Child01 first={first} last={last}/>
             </>
         )
     }
