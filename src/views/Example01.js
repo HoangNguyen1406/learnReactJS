@@ -1,16 +1,30 @@
 import React from 'react';
 import { Child01 } from './ChildComponents/Child01';
+import { FormComponent } from './ChildComponents/FormComponent';
 
 class Example01 extends React.Component{
 
-    render(){
+    state = {
+        arrJobs: [
+            { id: 'abcJob1', title: 'Developers', salary: '500' },
+            { id: 'abcJob2', title: 'Testers', salary: '400' },
+            { id: 'abcJob3', title: 'Project managers', salary: '1000' },
+        ],
+    }
 
-        const first = "Nguyen";
-        const last ="A";
+    handleArray = (job) =>{
+        this.setState({
+            arrJobs: [...this.state.arrJobs,job],
+        });
+    }
+
+    render(){
 
         return(
             <>
-                <Child01 first={first} last={last}/>
+                <FormComponent handleArray={this.handleArray}/>
+                <br/>
+                <Child01 arrJobs={this.state.arrJobs}/>
             </>
         )
     }

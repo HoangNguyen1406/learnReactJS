@@ -1,40 +1,44 @@
 import React from 'react';
 
-class Child01 extends React.Component{
-
-    onChangeFirstName = (e)=>{
-        this.setState({
-            firstName: e.target.value,
-        });
-    }
-
-    onChangeLastName = (e)=>{
-        this.setState({
-            lastName: e.target.value,
-        });
-    }
+class Child01 extends React.Component {
 
     state = {
-        firstName: '',
-        lastName: '',
+        btnShow: false,
     }
 
-    render(){
+    handleClick = () => {
+        this.setState({
+            btnShow: !this.state.btnShow
+        })
+    }
 
-        const {first, last} = this.props;
+    render() {
 
-        return(
+        const { arrJobs } = this.props;
+        const { btnShow } = this.state;
+        let checkShow = btnShow === true ? 'btnShow=false' : 'btnShow=true';
+        return (
             <>
-            <form action="/action_page.php">
-                <label htmlFor="fname">First name:</label><br/>
-                <input type="text"value={first} onChange={this.onChangeFirstName}/><br/>
-                <label htmlFor="lname">Last name:</label><br/>
-                <input type="text"value={last} onChange={this.onChangeLastName}/><br/>
-                <input type="button" value="Submit"/>
-            </form>
+            {btnShow === false ?
+                <button onClick={() => { this.handleClick() }}>Show</button>
+                :
+                <>
+                <div className='joblist'>
+                    {
+                        arrJobs.map((item, index) => {
+                            return (
+                                <div key={item.id}>
+                                    {item.title} - {item.salary}$
+                                </div>);
+                        })
+                    }
+                </div>
+                <button onClick={() => { this.handleClick() }}>Hide</button>
+                </>
+            }
             </>
         )
     }
 }
 
-export {Child01};
+export { Child01 };
