@@ -18,13 +18,26 @@ class Example01 extends React.Component{
         });
     }
 
+    handleDelete = (job)=>{
+        let newJobs = this.state.arrJobs;
+        newJobs = newJobs.filter(item => item.id !== job.id);
+        this.setState({
+            arrJobs: newJobs,
+        })
+    }
+
     render(){
 
         return(
             <>
-                <FormComponent handleArray={this.handleArray}/>
+                <FormComponent
+                handleArray={this.handleArray}
+                />
                 <br/>
-                <Child01 arrJobs={this.state.arrJobs}/>
+                <Child01
+                arrJobs={this.state.arrJobs}
+                handleDelete={this.handleDelete}
+                />
             </>
         )
     }

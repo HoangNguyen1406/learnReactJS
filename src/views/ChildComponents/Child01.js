@@ -12,11 +12,14 @@ class Child01 extends React.Component {
         })
     }
 
+    handleOnclick = (item)=>{
+        this.props.handleDelete(item);
+    }
+
     render() {
 
         const { arrJobs } = this.props;
         const { btnShow } = this.state;
-        let checkShow = btnShow === true ? 'btnShow=false' : 'btnShow=true';
         return (
             <>
             {btnShow === false ?
@@ -29,7 +32,9 @@ class Child01 extends React.Component {
                             return (
                                 <div key={item.id}>
                                     {item.title} - {item.salary}$
-                                </div>);
+                                    <span><button onClick={() => this.handleOnclick(item)}>X</button></span>
+                                </div>
+                                );
                         })
                     }
                 </div>
