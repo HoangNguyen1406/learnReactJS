@@ -5,10 +5,10 @@
 
 //----------------
 #container {
-    height: 100vh;
+    min-height: 100vh;
+    max-width: 100vw;
     background: linear-gradient(135deg, #89f7fe, #66a6ff);
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 
@@ -16,59 +16,60 @@
         background-color: white;
         width: 21%;
         border-radius: 10px;
-    }
 
-    #Todo-form {
-        max-width: 400px;
-        margin: 0px auto;
-        padding: 20px 25px;
-        background: #ffffff;
-        border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        text-align: center;
-        font-family: "Segoe UI", sans-serif;
 
-        h1 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #333;
-        }
+        #Todo-form {
+            max-width: 400px;
+            margin: 0px auto;
+            padding: 20px 25px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            font-family: "Segoe UI", sans-serif;
 
-        form {
-            input {
-                &:last-child {
-                    width: 50px;
-                    height: 20px;
-                    margin-left: 10px;
+            h1 {
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            form {
+                input {
+                    &:last-child {
+                        width: 50px;
+                        height: 20px;
+                        margin-left: 10px;
+                    }
                 }
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                justify-content: center;
+                height: 2px;
+                width: 20%;
+                transform: translateX(-50%);
+                margin-top: 10px;
+                background-color: black;
             }
         }
 
-        &::after {
-            content: '';
-            position: absolute;
-            justify-content: center;
-            height: 2px;
-            width: 20%;
-            transform: translateX(-50%);
-            margin-top: 10px;
-            background-color: black;
-        }
-    }
+        .list {
+            text-align: left;
+            min-width: 250px;
+            font-size: 20px;
+            padding: 10px 5px 10px 5px;
+            border-bottom: 1px black solid;
+            display: flex;
+            gap: 10px;
 
-    .list {
-        text-align: left;
-        min-width: 250px;
-        font-size: 20px;
-        padding: 10px 5px 10px 5px;
-        border-bottom: 1px black solid;
-        display: flex;
-        gap: 10px;
-
-        button {
-            width: 50px;
-            height: 30px;
+            button {
+                width: 50px;
+                height: 30px;
+            }
         }
     }
 }

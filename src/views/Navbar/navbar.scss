@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+
+  a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #575757;
+      border-radius: 4px;
+    }
+  }
+  .active{
+    background-color: #ff5757;
+  }
+}
