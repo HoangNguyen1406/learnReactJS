@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class Child01 extends React.Component {
 
     state = {
-        btnShow: false,
+        btnShow: true,
     }
 
     handleClick = () => {
@@ -13,11 +14,13 @@ class Child01 extends React.Component {
     }
 
     handleOnclick = (item)=>{
-        this.props.handleDelete(item);
+        //this.props.handleDelete(item);
+        this.props.deleteUser(item);
     }
 
     render() {
-
+        //console.log(this.props.dataRedux);
+        const data = this.props.dataRedux;
         const { arrJobs } = this.props;
         const { btnShow } = this.state;
         return (
@@ -28,7 +31,7 @@ class Child01 extends React.Component {
                 <>
                 <div className='joblist'>
                     {
-                        arrJobs.map((item, index) => {
+                        data && data.length > 0 && data.map((item, index) => {
                             return (
                                 <div key={item.id}>
                                     {item.title} - {item.salary}$
@@ -46,4 +49,14 @@ class Child01 extends React.Component {
     }
 }
 
-export { Child01 };
+const storeRedux = (state)=>({dataRedux:state.arrJobs});
+
+const mapDispatchtoProps = (dispatch)=>{
+    return{
+        deleteUser: (id_user)=>dispatch(
+            {type:"DELETE_USER",payload:id_user}
+        )
+    }
+}
+
+export default connect(storeRedux,mapDispatchtoProps)(Child01);

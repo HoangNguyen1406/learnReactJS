@@ -11,9 +11,9 @@ function getRandomColor() {
 
 const Color = (Wrapped) =>{
     let colorRandom = getRandomColor();
-    return (props) =>(
+    return () =>(
         <div style={{ color: colorRandom }}>
-        <Wrapped {...props}/>
+        <Wrapped/>
         </div>
     )
 }

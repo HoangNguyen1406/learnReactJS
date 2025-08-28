@@ -1,6 +1,7 @@
 import React from 'react';
-import { Child01 } from './ChildComponents/Child01';
-import { FormComponent } from './ChildComponents/FormComponent';
+import Child01  from './ChildComponents/Child01';
+import FormComponent from './ChildComponents/FormComponent';
+import { connect } from 'react-redux';
 
 class Example01 extends React.Component{
 
@@ -27,7 +28,7 @@ class Example01 extends React.Component{
     }
 
     render(){
-
+        //console.log(">>>>check redux:",this.props.dataJobs);
         return(
             <>
                 <FormComponent
@@ -43,4 +44,8 @@ class Example01 extends React.Component{
     }
 }
 
-export {Example01};
+const storeRedux = (state) =>{
+    return {dataJobs: state.arrJobs}
+}
+
+export default connect(storeRedux)(Example01);

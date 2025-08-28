@@ -9,7 +9,11 @@ class Users extends React.Component {
     }
 
     async componentDidMount() {
-        let respon = await axios.get("https://reqres.in/api/users?page=1");
+        let respon = await axios.get("https://reqres.in/api/users?page=1",{
+            headers:{
+                "x-api-key": "reqres-free-v1"
+            }
+        });
         this.setState({
             listUsers: respon && respon.data && respon.data.data ? [...respon.data.data] : [],
         });

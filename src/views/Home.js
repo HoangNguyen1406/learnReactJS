@@ -12,4 +12,4 @@ class Home extends React.Component {
     }
 }
 
-export default withRouter(Home);
+export default withRouter(Color(Home));

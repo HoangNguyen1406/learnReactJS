@@ -9,7 +9,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { Example01 } from './Example01';
+import Example01  from './Example01';
 import Home from './Home';
 import Users from './User/Users';
 import DetailUser from './User/DetailUser';

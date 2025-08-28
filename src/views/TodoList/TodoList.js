@@ -14,11 +14,11 @@ class TodoList extends React.Component {
         })
     }
 
-    handleEdit = (item,isEmpty) => {
-        if(isEmpty === false && this.state.current.id === item.id){
+    handleEdit = (item, isEmpty) => {
+        if (isEmpty === false && this.state.current.id === item.id) {
             this.props.handleUpdate(this.state.current);
             this.setState({
-                current:{},
+                current: {},
             })
             return;
         }
@@ -27,8 +27,8 @@ class TodoList extends React.Component {
         })
     }
 
-    handleInputEdit = (e) =>{
-        let inputcopy = {...this.state.current}
+    handleInputEdit = (e) => {
+        let inputcopy = { ...this.state.current }
         inputcopy.name = e.target.value;
         this.setState({
             current: inputcopy,
@@ -51,20 +51,20 @@ class TodoList extends React.Component {
                                             <span>- {item.name}</span>
                                             :
                                             <>
-                                            { item.id === this.state.current.id ?
-                                                <span>{index + 1}: <input value={this.state.current.name}
-                                                onChange={(e)=>this.handleInputEdit(e)} /></span>
-                                                :
-                                                <span>- {item.name}</span>
-                                            }
+                                                {item.id === this.state.current.id ?
+                                                    <span>{index + 1}: <input value={this.state.current.name}
+                                                        onChange={(e) => this.handleInputEdit(e)} /></span>
+                                                    :
+                                                    <span>- {item.name}</span>
+                                                }
                                             </>
                                         }
-                                        <button onClick={() => this.handleEdit(item,isEmpty)}>
-                                        {isEmpty === false && item.id === this.state.current.id ?
-                                            "Save"
-                                            :
-                                            "Edit"
-                                        }
+                                        <button onClick={() => this.handleEdit(item, isEmpty)}>
+                                            {isEmpty === false && item.id === this.state.current.id ?
+                                                "Save"
+                                                :
+                                                "Edit"
+                                            }
                                         </button>
                                         <button onClick={() => { this.props.handleDelete(item) }}>Delete</button>
                                     </div>
@@ -79,4 +79,6 @@ class TodoList extends React.Component {
         );
     }
 }
+
+
 export default TodoList;
